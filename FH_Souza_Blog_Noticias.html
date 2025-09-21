@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias Tributárias - FH Souza Advogados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fh-dark': '#1A282D',
+                        'fh-green': '#66A34F', 
+                        'fh-light': '#F8F9FA',
+                        'fh-gray-light': '#E5E7EB',
+                        'fh-gray': '#6B7280',
+                        'fh-gray-dark': '#374151'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1A282D 0%, #66A34F 50%, #1A282D 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .logo-hover {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .logo-hover:hover {
+            transform: scale(1.05);
+        }
+        
+        .news-image {
+            background: linear-gradient(135deg, #66A34F 0%, #4f7a39 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .news-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .category-badge {
+            background: linear-gradient(135deg, #66A34F 0%, #4f7a39 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .trending-badge {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-nav { display: flex; }
+            .desktop-nav { display: none; }
+        }
+        
+        @media (min-width: 769px) {
+            .desktop-nav { display: flex; }
+            .mobile-nav { display: none; }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo COM LINK PARA SITE PRINCIPAL -->
+                <div class="flex items-center space-x-3 logo-hover" onclick="window.location.href='FH_Souza_Site_Completo_Final.html'">
+                    <div class="w-12 h-12 bg-fh-dark rounded-lg flex items-center justify-center">
+                        <span class="text-fh-green font-bold text-lg">FH</span>
+                    </div>
+                    <div>
+                        <div class="text-fh-green font-bold text-lg">SOUZA.</div>
+                        <div class="text-fh-dark text-sm">ADVOGADOS</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav space-x-8">
+                    <a href="FH_Souza_Site_Completo_Final.html" class="text-fh-gray hover:text-fh-green transition-colors">Início</a>
+                    <a href="FH_Souza_Servicos_Melhorado.html" class="text-fh-gray hover:text-fh-green transition-colors">Serviços</a>
+                    <a href="FH_Souza_Nossa_Historia.html" class="text-fh-gray hover:text-fh-green transition-colors">Nossa História</a>
+                    <a href="#noticias" class="text-fh-green font-semibold">Notícias</a>
+                    <a href="FH_Souza_Contato_Melhorado.html" class="text-fh-gray hover:text-fh-green transition-colors">Contato</a>
+                </nav>
+                
+                <!-- Mobile menu button -->
+                <button class="mobile-nav p-2 text-fh-gray" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <a href="FH_Souza_Contato_Melhorado.html" class="hidden md:block bg-fh-green text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute top-10 left-10 w-32 h-32 bg-fh-green/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="inline-block bg-yellow-400/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-6 py-2 mb-6">
+                    <span class="text-yellow-200 font-semibold">
+                        <i class="fas fa-newspaper mr-2"></i>
+                        Análises Tributárias Especializadas
+                    </span>
+                </div>
+                
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6">
+                    <span class="text-yellow-300">Notícias</span> e <span class="text-fh-green">Insights</span><br>
+                    Tributários
+                </h1>
+                
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+                    Mantenha-se atualizado com as principais mudanças na legislação tributária, 
+                    análises especializadas e insights da nossa equipe de especialistas.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="document.getElementById('newsletter').scrollIntoView({behavior: 'smooth'})" class="bg-white text-fh-dark px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Assinar Newsletter
+                    </button>
+                    <button onclick="document.getElementById('noticias').scrollIntoView({behavior: 'smooth'})" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-fh-dark transition-all">
+                        <i class="fas fa-arrow-down mr-2"></i>
+                        Ver Notícias
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notícias em Destaque -->
+    <section id="noticias" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-16">
+                <div>
+                    <h2 class="text-4xl font-bold text-fh-dark mb-4">Notícias em <span class="text-fh-green">Destaque</span></h2>
+                    <p class="text-xl text-fh-gray">As principais atualizações do mundo tributário</p>
+                </div>
+                
+                <div class="hidden md:flex space-x-4">
+                    <button class="px-4 py-2 bg-fh-green text-white rounded-lg hover:bg-opacity-90 transition-all">Todas</button>
+                    <button class="px-4 py-2 bg-gray-200 text-fh-gray rounded-lg hover:bg-gray-300 transition-all">Reforma Tributária</button>
+                    <button class="px-4 py-2 bg-gray-200 text-fh-gray rounded-lg hover:bg-gray-300 transition-all">SPED</button>
+                    <button class="px-4 py-2 bg-gray-200 text-fh-gray rounded-lg hover:bg-gray-300 transition-all">Jurisprudência</button>
+                </div>
+            </div>
+
+            <!-- Notícia Principal -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover">
+                    <div class="news-image h-64 flex items-end p-6 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <div class="relative z-10 flex items-center space-x-3">
+                            <i class="fas fa-chart-line text-white text-4xl"></i>
+                            <div class="text-white">
+                                <div class="text-2xl font-bold mb-1">Reforma Tributária 2025</div>
+                                <div class="text-sm opacity-90">Principais mudanças para empresas</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="trending-badge">Em Alta</span>
+                            <span class="text-sm text-fh-gray">15 de Janeiro, 2025</span>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-fh-dark mb-4">
+                            Nova Reforma Tributária: O que sua empresa precisa saber sobre IBS e CBS
+                        </h3>
+                        
+                        <p class="text-fh-gray mb-6 leading-relaxed">
+                            A implementação dos novos tributos IBS (Imposto sobre Bens e Serviços) e CBS (Contribuição sobre Bens e Serviços) 
+                            traz mudanças significativas para o ambiente empresarial brasileiro. Nossa análise especializada revela...
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-fh-green rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">FS</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-fh-dark">Dr. Fabricio H. Souza</div>
+                                    <div class="text-sm text-fh-gray">Especialista Tributário</div>
+                                </div>
+                            </div>
+                            
+                            <button class="bg-fh-green text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                                Ler Mais <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Newsletter/VIDAL Destaque -->
+                <div class="bg-gradient-to-br from-fh-green to-blue-500 rounded-3xl p-8 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-brain text-white text-2xl"></i>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold mb-4">Análises VIDAL</h3>
+                        <p class="text-white/90 mb-6 leading-relaxed">
+                            Nossa IA processa milhares de dados tributários em tempo real, 
+                            identificando oportunidades e riscos para sua empresa.
+                        </p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-white/80"></i>
+                                <span>Análises automatizadas diárias</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-white/80"></i>
+                                <span>Relatórios executivos personalizados</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-white/80"></i>
+                                <span>Alertas de mudanças legislativas</span>
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.open('FH_Souza_Contato_Melhorado.html', '_blank')" class="bg-white text-fh-green px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all w-full">
+                            <i class="fas fa-eye mr-2"></i>
+                            Conhecer VIDAL
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid de Notícias -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Notícia 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="news-image h-48 flex items-center justify-center relative">
+                        <i class="fas fa-file-invoice text-white text-4xl relative z-10"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="category-badge">SPED</span>
+                            <span class="text-sm text-fh-gray">12 de Janeiro, 2025</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-fh-dark mb-3">
+                            Novas Obrigações do SPED Fiscal 2025: Guia Completo
+                        </h3>
+                        
+                        <p class="text-fh-gray mb-4">
+                            As principais mudanças no Sistema Público de Escrituração Digital 
+                            que entram em vigor neste ano...
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-user-tie text-fh-green"></i>
+                                <span class="text-sm text-fh-gray">Equipe FH Souza</span>
+                            </div>
+                            <button class="text-fh-green hover:text-fh-dark transition-colors">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notícia 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="news-image h-48 flex items-center justify-center relative">
+                        <i class="fas fa-balance-scale text-white text-4xl relative z-10"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="category-badge bg-purple-500">Jurisprudência</span>
+                            <span class="text-sm text-fh-gray">10 de Janeiro, 2025</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-fh-dark mb-3">
+                            STF decide sobre exclusão do ICMS da base do PIS/COFINS
+                        </h3>
+                        
+                        <p class="text-fh-gray mb-4">
+                            Decisão histórica do Supremo Tribunal Federal tem impacto 
+                            direto na recuperação de créditos tributários...
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-gavel text-fh-green"></i>
+                                <span class="text-sm text-fh-gray">Análise Jurídica</span>
+                            </div>
+                            <button class="text-fh-green hover:text-fh-dark transition-colors">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notícia 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="news-image h-48 flex items-center justify-center relative">
+                        <i class="fas fa-coins text-white text-4xl relative z-10"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="category-badge bg-yellow-500">Recuperação</span>
+                            <span class="text-sm text-fh-gray">8 de Janeiro, 2025</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-fh-dark mb-3">
+                            PIS/COFINS sobre Energia Elétrica: R$ 15 bi em créditos disponíveis
+                        </h3>
+                        
+                        <p class="text-fh-gray mb-4">
+                            Levantamento exclusivo da FH Souza revela potencial de recuperação 
+                            bilionário para empresas brasileiras...
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-chart-bar text-fh-green"></i>
+                                <span class="text-sm text-fh-gray">Estudo FH Souza</span>
+                            </div>
+                            <button class="text-fh-green hover:text-fh-dark transition-colors">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notícia 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="news-image h-48 flex items-center justify-center relative">
+                        <i class="fas fa-globe text-white text-4xl relative z-10"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="category-badge bg-blue-500">Internacional</span>
+                            <span class="text-sm text-fh-gray">5 de Janeiro, 2025</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-fh-dark mb-3">
+                            Transfer Pricing: Novas regras da OCDE em vigor no Brasil
+                        </h3>
+                        
+                        <p class="text-fh-gray mb-4">
+                            As mudanças nas regras de preços de transferência afetam 
+                            empresas multinacionais operando no país...
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-world text-fh-green"></i>
+                                <span class="text-sm text-fh-gray">Tributação Internacional</span>
+                            </div>
+                            <button class="text-fh-green hover:text-fh-dark transition-colors">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notícia 6 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="news-image h-48 flex items-center justify-center relative">
+                        <i class="fas fa-robot text-white text-4xl relative z-10"></i>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="category-badge bg-indigo-500">Tecnologia</span>
+                            <span class="text-sm text-fh-gray">3 de Janeiro, 2025</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-fh-dark mb-3">
+                            Como a IA está revolucionando a consultoria tributária
+                        </h3>
+                        
+                        <p class="text-fh-gray mb-4">
+                            A aplicação de Inteligência Artificial na identificação 
+                            de oportunidades fiscais e compliance...
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-brain text-fh-green"></i>
+                                <span class="text-sm text-fh-gray">VIDAL Tech</span>
+                            </div>
+                            <button class="text-fh-green hover:text-fh-dark transition-colors">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Ver Mais -->
+            <div class="text-center mt-12">
+                <button class="bg-fh-green text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all">
+                    <i class="fas fa-plus-circle mr-2"></i>
+                    Carregar Mais Notícias
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-20 bg-fh-dark text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-r from-fh-green to-blue-500 rounded-3xl p-8 lg:p-12">
+                <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-envelope-open-text text-white text-3xl"></i>
+                </div>
+                
+                <h2 class="text-4xl font-bold mb-4">
+                    Newsletter <span class="text-yellow-300">Tributária FH Souza</span>
+                </h2>
+                
+                <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                    Receba semanalmente análises exclusivas, alertas de mudanças legislativas e insights 
+                    estratégicos da nossa equipe de especialistas em direito tributário.
+                </p>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8">
+                    <h3 class="text-xl font-bold mb-4">O que você vai receber:</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-left">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-yellow-300 mt-1"></i>
+                            <span>Análises semanais de mudanças legislativas</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-yellow-300 mt-1"></i>
+                            <span>Relatórios exclusivos da plataforma VIDAL</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-yellow-300 mt-1"></i>
+                            <span>Alertas de oportunidades de recuperação</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-yellow-300 mt-1"></i>
+                            <span>Insights estratégicos para CEOs</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                    <input type="email" placeholder="Seu email profissional" class="flex-1 px-6 py-3 rounded-lg text-fh-dark focus:outline-none focus:ring-2 focus:ring-yellow-300">
+                    <button class="bg-yellow-400 text-fh-dark px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-all">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Assinar
+                    </button>
+                </div>
+                
+                <p class="text-white/70 text-sm mt-4">
+                    <i class="fas fa-lock mr-1"></i>
+                    Seus dados estão protegidos. Não compartilhamos com terceiros.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-fh-dark mb-4">Explore por <span class="text-fh-green">Categoria</span></h2>
+                <p class="text-xl text-fh-gray">Encontre conteúdo específico para sua área de interesse</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl p-6 text-center card-hover border-l-4 border-fh-green">
+                    <div class="w-12 h-12 bg-fh-green rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-2">Reforma Tributária</h3>
+                    <p class="text-fh-gray mb-4">IBS, CBS e todas as mudanças</p>
+                    <span class="text-fh-green font-semibold">24 artigos</span>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 text-center card-hover border-l-4 border-blue-500">
+                    <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-2">SPED</h3>
+                    <p class="text-fh-gray mb-4">Obrigações acessórias</p>
+                    <span class="text-blue-500 font-semibold">18 artigos</span>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 text-center card-hover border-l-4 border-purple-500">
+                    <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-balance-scale text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-2">Jurisprudência</h3>
+                    <p class="text-fh-gray mb-4">Decisões dos tribunais</p>
+                    <span class="text-purple-500 font-semibold">32 artigos</span>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 text-center card-hover border-l-4 border-yellow-500">
+                    <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-coins text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-2">Recuperação</h3>
+                    <p class="text-fh-gray mb-4">Créditos tributários</p>
+                    <span class="text-yellow-500 font-semibold">15 artigos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-fh-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-fh-green rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">FH</span>
+                        </div>
+                        <div>
+                            <div class="text-fh-green font-bold text-lg">SOUZA.</div>
+                            <div class="text-white text-sm">ADVOGADOS</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                        Conteúdo tributário especializado com a credibilidade de mais de 30 anos 
+                        de atuação e a tecnologia da plataforma VIDAL.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-fh-green rounded-full flex items-center justify-center hover:bg-opacity-80">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-fh-green rounded-full flex items-center justify-center hover:bg-opacity-80">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-fh-green rounded-full flex items-center justify-center hover:bg-opacity-80">
+                            <i class="fab fa-youtube text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Navegação</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <a href="FH_Souza_Site_Completo_Final.html" class="block hover:text-fh-green transition-colors">Início</a>
+                        <a href="FH_Souza_Servicos_Melhorado.html" class="block hover:text-fh-green transition-colors">Serviços</a>
+                        <a href="FH_Souza_Nossa_Historia.html" class="block hover:text-fh-green transition-colors">Nossa História</a>
+                        <a href="FH_Souza_Contato_Melhorado.html" class="block hover:text-fh-green transition-colors">Contato</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Categorias</h3>
+                    <div class="space-y-2 text-gray-400 text-sm">
+                        <a href="#" class="block hover:text-fh-green transition-colors">Reforma Tributária</a>
+                        <a href="#" class="block hover:text-fh-green transition-colors">SPED</a>
+                        <a href="#" class="block hover:text-fh-green transition-colors">Jurisprudência</a>
+                        <a href="#" class="block hover:text-fh-green transition-colors">Recuperação de Créditos</a>
+                        <a href="#" class="block hover:text-fh-green transition-colors">Tecnologia VIDAL</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 FH Souza Advogados. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            // Implementação do menu mobile se necessário
+            console.log('Mobile menu toggle');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - FH Souza Advogados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fh-dark': '#1A282D',
+                        'fh-green': '#66A34F', 
+                        'fh-light': '#F8F9FA',
+                        'fh-gray-light': '#E5E7EB',
+                        'fh-gray': '#6B7280',
+                        'fh-gray-dark': '#374151'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1A282D 0%, #66A34F 50%, #1A282D 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .logo-hover {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .logo-hover:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-icon {
+            background: linear-gradient(135deg, #66A34F 0%, #4f7a39 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-icon:hover {
+            background: linear-gradient(135deg, #4f7a39 0%, #66A34F 100%);
+            transform: scale(1.1);
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            ring-color: #66A34F;
+            border-color: #66A34F;
+            transform: translateY(-2px);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-nav { display: flex; }
+            .desktop-nav { display: none; }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .desktop-nav { display: flex; }
+            .mobile-nav { display: none; }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float flex items-center justify-center" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo COM LINK PARA SITE PRINCIPAL -->
+                <div class="flex items-center space-x-3 logo-hover" onclick="window.location.href='FH_Souza_Site_Completo_Final.html'">
+                    <div class="w-12 h-12 bg-fh-dark rounded-lg flex items-center justify-center">
+                        <span class="text-fh-green font-bold text-lg">FH</span>
+                    </div>
+                    <div>
+                        <div class="text-fh-green font-bold text-lg">SOUZA.</div>
+                        <div class="text-fh-dark text-sm">ADVOGADOS</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav space-x-8">
+                    <a href="FH_Souza_Site_Completo_Final.html" class="text-fh-gray hover:text-fh-green transition-colors">Início</a>
+                    <a href="FH_Souza_Servicos_Melhorado.html" class="text-fh-gray hover:text-fh-green transition-colors">Serviços</a>
+                    <a href="FH_Souza_Nossa_Historia.html" class="text-fh-gray hover:text-fh-green transition-colors">Nossa História</a>
+                    <a href="FH_Souza_Blog_Noticias_Melhorado.html" class="text-fh-gray hover:text-fh-green transition-colors">Notícias</a>
+                    <a href="#contato" class="text-fh-green font-semibold">Contato</a>
+                </nav>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    <span class="text-fh-gray text-sm">Emergência:</span>
+                    <a href="tel:+5515981198493" class="bg-fh-green text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                        <i class="fas fa-phone mr-1"></i>
+                        (15) 98119-8493
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute top-10 left-10 w-32 h-32 bg-fh-green/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="inline-block bg-yellow-400/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-6 py-2 mb-6">
+                    <span class="text-yellow-200 font-semibold">
+                        <i class="fas fa-headset mr-2"></i>
+                        Atendimento Especializado
+                    </span>
+                </div>
+                
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6">
+                    Entre em <span class="text-yellow-300">Contato</span><br>
+                    <span class="text-fh-green">Conosco</span>
+                </h1>
+                
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+                    Nossa equipe de especialistas está pronta para analisar sua situação tributária e 
+                    propor soluções personalizadas com o apoio da tecnologia VIDAL.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="openWhatsApp()" class="bg-green-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition-all shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        WhatsApp Direto
+                    </button>
+                    <button onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'})" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-fh-dark transition-all">
+                        <i class="fas fa-form mr-2"></i>
+                        Preencher Formulário
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informações de Contato -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-fh-dark mb-4">
+                    <span class="text-fh-green">Múltiplos</span> Canais de Atendimento
+                </h2>
+                <p class="text-xl text-fh-gray max-w-3xl mx-auto">
+                    Escolha a forma mais conveniente para entrar em contato conosco
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- WhatsApp -->
+                <div class="bg-white rounded-2xl p-8 text-center shadow-lg card-hover border-l-4 border-green-500">
+                    <div class="contact-icon w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fab fa-whatsapp text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">WhatsApp</h3>
+                    <p class="text-fh-gray mb-4">Atendimento rápido e direto</p>
+                    <button onclick="openWhatsApp()" class="text-green-500 hover:text-green-600 font-semibold">
+                        (15) 98119-8493
+                    </button>
+                    <div class="mt-2 text-sm text-fh-gray">
+                        <i class="fas fa-clock mr-1"></i>
+                        Segunda a Sexta: 8h às 18h
+                    </div>
+                </div>
+
+                <!-- Telefone -->
+                <div class="bg-white rounded-2xl p-8 text-center shadow-lg card-hover border-l-4 border-blue-500">
+                    <div class="contact-icon w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-phone text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">Telefone</h3>
+                    <p class="text-fh-gray mb-4">Consulta telefônica</p>
+                    <a href="tel:+5515981198493" class="text-blue-500 hover:text-blue-600 font-semibold">
+                        (15) 98119-8493
+                    </a>
+                    <div class="mt-2 text-sm text-fh-gray">
+                        <i class="fas fa-clock mr-1"></i>
+                        Segunda a Sexta: 8h às 18h
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="bg-white rounded-2xl p-8 text-center shadow-lg card-hover border-l-4 border-purple-500">
+                    <div class="contact-icon w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-envelope text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">E-mail</h3>
+                    <p class="text-fh-gray mb-4">Contato profissional</p>
+                    <a href="mailto:fabricio@fhsouza.com.br" class="text-purple-500 hover:text-purple-600 font-semibold break-all">
+                        fabricio@fhsouza.com.br
+                    </a>
+                    <div class="mt-2 text-sm text-fh-gray">
+                        <i class="fas fa-reply mr-1"></i>
+                        Resposta em até 2h úteis
+                    </div>
+                </div>
+
+                <!-- Localização -->
+                <div class="bg-white rounded-2xl p-8 text-center shadow-lg card-hover border-l-4 border-orange-500">
+                    <div class="contact-icon w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">Localização</h3>
+                    <p class="text-fh-gray mb-4">Escritório em Sorocaba</p>
+                    <div class="text-orange-500 font-semibold text-sm">
+                        R. Eulália Silva, 454 - 1º Andar<br>
+                        Sala 12 - Sorocaba-SP
+                    </div>
+                    <div class="mt-2 text-sm text-fh-gray">
+                        <i class="fas fa-calendar mr-1"></i>
+                        Agendamento obrigatório
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Contato -->
+    <section id="formulario" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-fh-dark mb-4">
+                    Formulário de <span class="text-fh-green">Contato</span>
+                </h2>
+                <p class="text-xl text-fh-gray">
+                    Preencha os campos abaixo e entraremos em contato em até 2 horas úteis
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl p-8 lg:p-12">
+                <form class="space-y-6">
+                    <!-- Dados Pessoais -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-fh-dark mb-2">
+                                Nome Completo *
+                            </label>
+                            <input 
+                                type="text" 
+                                required
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fh-green focus:border-fh-green transition-all"
+                                placeholder="Seu nome completo"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-fh-dark mb-2">
+                                Cargo/Função *
+                            </label>
+                            <input 
+                                type="text" 
+                                required
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fh-green focus:border-fh-green transition-all"
+                                placeholder="CEO, CFO, Contador, etc."
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Contato -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-fh-dark mb-2">
+                                E-mail Profissional *
+                            </label>
+                            <input 
+                                type="email" 
+                                required
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fh-green focus:border-fh-green transition-all"
+                                placeholder="seuemail@empresa.com.br"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-fh-dark mb-2">
+                                WhatsApp *
+                            </label>
+                            <input 
+                                type="tel" 
+                                required
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fh-green focus:border-fh-green transition-all"
+                                placeholder="(11) 99999-9999"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Dados da Empresa -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-fh-dark mb-2">
+                                Nome da Empresa *
+                            </label>
+                            <input 
+                                type="text" 
+                                required
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fh-green focus:border-fh-green transition-all"
+                                placeholder="Nome da sua empresa"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-fh-dark mb-2">
+                                Faturamento Anual
+                            </label>
+                            <select class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fh-green focus:border-fh-green transition-all">
+                                <option value="">Selecione uma faixa</option>
+                                <option value="ate-4-8mi">Até R$ 4,8 milhões</option>
+                                <option value="4-8mi-a-16mi">R$ 4,8mi a R$ 16 milhões</option>
+                                <option value="16mi-a-90mi">R$ 16mi a R$ 90 milhões</option>
+                                <option value="90mi-a-300mi">R$ 90mi a R$ 300 milhões</option>
+                                <option value="acima-300mi">Acima de R$ 300 milhões</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Tipo de Serviço -->
+                    <div>
+                        <label class="block text-sm font-semibold text-fh-dark mb-2">
+                            Serviço de Interesse *
+                        </label>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <label class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
+                                <input type="checkbox" class="text-fh-green focus:ring-fh-green mr-3">
+                                <span>Revisão Fiscal VIDAL</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
+                                <input type="checkbox" class="text-fh-green focus:ring-fh-green mr-3">
+                                <span>Consultoria Tributária</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
+                                <input type="checkbox" class="text-fh-green focus:ring-fh-green mr-3">
+                                <span>Planejamento Tributário</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
+                                <input type="checkbox" class="text-fh-green focus:ring-fh-green mr-3">
+                                <span>SPED & Compliance</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
+                                <input type="checkbox" class="text-fh-green focus:ring-fh-green mr-3">
+                                <span>Recuperação de Créditos</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
+                                <input type="checkbox" class="text-fh-green focus:ring-fh-green mr-3">
+                                <span>Demonstração VIDAL</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Urgência -->
+                    <div>
+                        <label class="block text-sm font-semibold text-fh-dark mb-2">
+                            Urgência do Atendimento
+                        </label>
+                        <div class="flex flex-wrap gap-3">
+                            <label class="flex items-center">
+                                <input type="radio" name="urgencia" value="alta" class="text-red-500 focus:ring-red-500 mr-2">
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
+                                    <i class="fas fa-fire mr-1"></i>Alta - Até 2h
+                                </span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="urgencia" value="media" class="text-yellow-500 focus:ring-yellow-500 mr-2" checked>
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">
+                                    <i class="fas fa-clock mr-1"></i>Média - Até 1 dia
+                                </span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="urgencia" value="baixa" class="text-green-500 focus:ring-green-500 mr-2">
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                                    <i class="fas fa-calendar mr-1"></i>Baixa - Até 3 dias
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Mensagem -->
+                    <div>
+                        <label class="block text-sm font-semibold text-fh-dark mb-2">
+                            Descreva sua Situação
+                        </label>
+                        <textarea 
+                            rows="4"
+                            class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fh-green focus:border-fh-green transition-all resize-none"
+                            placeholder="Conte-nos sobre sua situação tributária atual, principais desafios, objetivos ou qualquer informação que considere relevante para nossa análise..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Autorização -->
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <label class="flex items-start">
+                            <input type="checkbox" required class="text-fh-green focus:ring-fh-green mr-3 mt-1">
+                            <span class="text-sm text-fh-gray">
+                                Autorizo o recebimento de informações via WhatsApp, e-mail e telefone. Declaro estar ciente de que posso solicitar a exclusão dos dados a qualquer momento. 
+                                <strong>Garantimos total conformidade com a LGPD.</strong>
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Botões -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                        <button 
+                            type="submit"
+                            class="flex-1 bg-fh-green text-white py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all shadow-lg"
+                        >
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Solicitação
+                        </button>
+                        
+                        <button 
+                            type="button"
+                            onclick="openWhatsApp()"
+                            class="flex-1 bg-green-500 text-white py-4 rounded-lg text-lg font-semibold hover:bg-green-600 transition-all shadow-lg"
+                        >
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            WhatsApp Direto
+                        </button>
+                    </div>
+
+                    <!-- Informação de Resposta -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                        <div class="flex items-center justify-center space-x-2 text-blue-800">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="font-semibold">Tempo de Resposta Garantido</span>
+                        </div>
+                        <p class="text-blue-700 text-sm mt-2">
+                            Nossa equipe entrará em contato em até <strong>2 horas úteis</strong> para casos de urgência alta, 
+                            ou conforme o prazo selecionado acima.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa e Localização -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-fh-dark mb-4">
+                    Nossa <span class="text-fh-green">Localização</span>
+                </h2>
+                <p class="text-xl text-fh-gray">
+                    Escritório moderno no coração de Sorocaba
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Informações de Localização -->
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-br from-fh-green to-blue-500 rounded-2xl p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-6">
+                            <i class="fas fa-building mr-3"></i>
+                            Edifício Millenia Office
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-map-marker-alt text-yellow-300 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Endereço Completo:</div>
+                                    <div class="text-white/90">
+                                        R. Eulália Silva, 454 - 1º Andar, Sala 12<br>
+                                        Jardim Faculdade, Sorocaba - SP<br>
+                                        CEP: 18030-230
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-car text-yellow-300 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Estacionamento:</div>
+                                    <div class="text-white/90">Gratuito no local</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-clock text-yellow-300 mt-1"></i>
+                                <div>
+                                    <div class="font-semibold">Horário de Funcionamento:</div>
+                                    <div class="text-white/90">
+                                        Segunda a Sexta: 8h às 18h<br>
+                                        Sábado: Apenas com agendamento
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="openMaps()" class="mt-6 bg-white text-fh-green px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all w-full">
+                            <i class="fas fa-directions mr-2"></i>
+                            Abrir no Google Maps
+                        </button>
+                    </div>
+                    
+                    <!-- Pontos de Referência -->
+                    <div class="bg-gray-50 rounded-2xl p-6">
+                        <h4 class="text-lg font-bold text-fh-dark mb-4">
+                            <i class="fas fa-landmark mr-2 text-fh-green"></i>
+                            Pontos de Referência
+                        </h4>
+                        <div class="space-y-2 text-fh-gray">
+                            <div><i class="fas fa-graduation-cap text-fh-green mr-2"></i>Próximo à PUC-SP Campus Sorocaba</div>
+                            <div><i class="fas fa-hospital text-fh-green mr-2"></i>Hospital Santa Lucinda (500m)</div>
+                            <div><i class="fas fa-shopping-cart text-fh-green mr-2"></i>Shopping Iguatemi Esplanada (2km)</div>
+                            <div><i class="fas fa-gas-pump text-fh-green mr-2"></i>Posto Ipiranga na esquina</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mapa Placeholder -->
+                <div class="relative">
+                    <div class="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <i class="fas fa-map text-4xl mb-4"></i>
+                            <div class="text-xl font-semibold">Mapa Interativo</div>
+                            <div class="text-sm">R. Eulália Silva, 454 - Sorocaba-SP</div>
+                            <button onclick="openMaps()" class="mt-4 bg-fh-green text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                                Visualizar no Google Maps
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Rápido -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-fh-dark mb-4">
+                    Perguntas <span class="text-fh-green">Frequentes</span>
+                </h2>
+                <p class="text-xl text-fh-gray">
+                    Respostas rápidas para suas principais dúvidas
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-fh-dark">
+                            <i class="fas fa-question-circle text-fh-green mr-2"></i>
+                            Qual o prazo para resposta da consulta?
+                        </h3>
+                        <i class="fas fa-chevron-down text-fh-gray"></i>
+                    </div>
+                    <div class="mt-4 text-fh-gray">
+                        Garantimos resposta em até <strong>2 horas úteis</strong> para casos urgentes. 
+                        Para consultas regulares, nosso prazo máximo é de 24 horas.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-fh-dark">
+                            <i class="fas fa-question-circle text-fh-green mr-2"></i>
+                            A primeira consulta é gratuita?
+                        </h3>
+                        <i class="fas fa-chevron-down text-fh-gray"></i>
+                    </div>
+                    <div class="mt-4 text-fh-gray">
+                        Sim! A primeira análise diagnóstica é <strong>totalmente gratuita</strong>. 
+                        Inclui avaliação preliminar via VIDAL e orientações iniciais.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-fh-dark">
+                            <i class="fas fa-question-circle text-fh-green mr-2"></i>
+                            Atendem empresas de que porte?
+                        </h3>
+                        <i class="fas fa-chevron-down text-fh-gray"></i>
+                    </div>
+                    <div class="mt-4 text-fh-gray">
+                        Atendemos empresas de <strong>todos os portes</strong>, desde MEI até grandes corporações. 
+                        Nossos serviços são personalizados conforme o tamanho e necessidades específicas.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-fh-dark">
+                            <i class="fas fa-question-circle text-fh-green mr-2"></i>
+                            Como funciona a plataforma VIDAL?
+                        </h3>
+                        <i class="fas fa-chevron-down text-fh-gray"></i>
+                    </div>
+                    <div class="mt-4 text-fh-gray">
+                        A <strong>VIDAL</strong> é nossa IA proprietária que analisa mais de 200 pontos de crédito 
+                        automaticamente, gerando dashboards executivos e identificando oportunidades fiscais.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 bg-fh-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Pronto para <span class="text-yellow-300">Começar</span>?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+                Nossa equipe está aguardando para transformar a gestão fiscal da sua empresa. 
+                Entre em contato agora e descubra o poder da plataforma VIDAL.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <button onclick="openWhatsApp()" class="bg-white text-fh-green px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    WhatsApp: (15) 98119-8493
+                </button>
+                <button onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'})" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-fh-green transition-all">
+                    <i class="fas fa-form mr-2"></i>
+                    Preencher Formulário
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-fh-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-fh-green rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">FH</span>
+                        </div>
+                        <div>
+                            <div class="text-fh-green font-bold text-lg">SOUZA.</div>
+                            <div class="text-white text-sm">ADVOGADOS</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                        Especialistas em direito tributário com mais de 30 anos de experiência 
+                        e tecnologia VIDAL de ponta.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-fh-green rounded-full flex items-center justify-center hover:bg-opacity-80">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-fh-green rounded-full flex items-center justify-center hover:bg-opacity-80">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-fh-green rounded-full flex items-center justify-center hover:bg-opacity-80">
+                            <i class="fab fa-youtube text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <a href="FH_Souza_Site_Completo_Final.html" class="block hover:text-fh-green transition-colors">Início</a>
+                        <a href="FH_Souza_Servicos_Melhorado.html" class="block hover:text-fh-green transition-colors">Serviços</a>
+                        <a href="FH_Souza_Nossa_Historia.html" class="block hover:text-fh-green transition-colors">Nossa História</a>
+                        <a href="FH_Souza_Blog_Noticias_Melhorado.html" class="block hover:text-fh-green transition-colors">Notícias</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contato Rápido</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <button onclick="openWhatsApp()" class="block hover:text-fh-green transition-colors text-left">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            (15) 98119-8493
+                        </button>
+                        <a href="mailto:fabricio@fhsouza.com.br" class="block hover:text-fh-green transition-colors">
+                            <i class="fas fa-envelope mr-2"></i>
+                            fabricio@fhsouza.com.br
+                        </a>
+                        <div>
+                            <i class="fas fa-clock mr-2"></i>
+                            Seg-Sex: 8h às 18h
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 FH Souza Advogados. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openWhatsApp() {
+            const message = encodeURIComponent('Olá! Gostaria de mais informações sobre os serviços da FH Souza Advogados.');
+            window.open(`https://wa.me/5515981198493?text=${message}`, '_blank');
+        }
+        
+        function openMaps() {
+            const address = encodeURIComponent('R. Eulália Silva, 454 - 1º Andar, Sala 12, Jardim Faculdade, Sorocaba - SP, 18030-230');
+            window.open(`https://maps.google.com/maps?q=${address}`, '_blank');
+        }
+
+        // Form validation and submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Aqui você pode adicionar a lógica de envio do formulário
+            alert('Formulário enviado com sucesso! Entraremos em contato em até 2 horas úteis.');
+            
+            // Opcional: redirecionar para WhatsApp
+            setTimeout(() => {
+                openWhatsApp();
+            }, 1000);
+        });
+
+        // Auto-resize textarea
+        document.querySelector('textarea').addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        });
+    </script>
+</body>
+</html>

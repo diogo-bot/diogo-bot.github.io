@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - FH Souza Advogados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fh-dark': '#1A282D',
+                        'fh-green': '#66A34F', 
+                        'fh-light': '#F8F9FA',
+                        'fh-gray-light': '#E5E7EB',
+                        'fh-gray': '#6B7280',
+                        'fh-gray-dark': '#374151'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1A282D 0%, #66A34F 50%, #1A282D 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .logo-hover {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .logo-hover:hover {
+            transform: scale(1.05);
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, #66A34F 0%, #4f7a39 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .service-icon:hover {
+            background: linear-gradient(135deg, #4f7a39 0%, #66A34F 100%);
+            transform: scale(1.1);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -50px;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #66A34F, transparent);
+            transform: translateY(-50%);
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step::after {
+                top: auto;
+                bottom: -30px;
+                right: 50%;
+                width: 2px;
+                height: 60px;
+                background: linear-gradient(180deg, #66A34F, transparent);
+                transform: translateX(50%);
+            }
+            
+            .mobile-nav { display: flex; }
+            .desktop-nav { display: none; }
+        }
+        
+        @media (min-width: 769px) {
+            .desktop-nav { display: flex; }
+            .mobile-nav { display: none; }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo COM LINK PARA SITE PRINCIPAL -->
+                <div class="flex items-center space-x-3 logo-hover" onclick="window.location.href='FH_Souza_Site_Completo_Final.html'">
+                    <div class="w-12 h-12 bg-fh-dark rounded-lg flex items-center justify-center">
+                        <span class="text-fh-green font-bold text-lg">FH</span>
+                    </div>
+                    <div>
+                        <div class="text-fh-green font-bold text-lg">SOUZA.</div>
+                        <div class="text-fh-dark text-sm">ADVOGADOS</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav space-x-8">
+                    <a href="FH_Souza_Site_Completo_Final.html" class="text-fh-gray hover:text-fh-green transition-colors">Início</a>
+                    <a href="#servicos" class="text-fh-green font-semibold">Serviços</a>
+                    <a href="FH_Souza_Nossa_Historia.html" class="text-fh-gray hover:text-fh-green transition-colors">Nossa História</a>
+                    <a href="FH_Souza_Blog_Noticias_Melhorado.html" class="text-fh-gray hover:text-fh-green transition-colors">Notícias</a>
+                    <a href="FH_Souza_Contato_Melhorado.html" class="text-fh-gray hover:text-fh-green transition-colors">Contato</a>
+                </nav>
+                
+                <!-- Mobile menu button -->
+                <button class="mobile-nav p-2 text-fh-gray" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                
+                <a href="FH_Souza_Contato_Melhorado.html" class="hidden md:block bg-fh-green text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute top-10 left-10 w-32 h-32 bg-fh-green/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="inline-block bg-yellow-400/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-6 py-2 mb-6">
+                    <span class="text-yellow-200 font-semibold">
+                        <i class="fas fa-briefcase mr-2"></i>
+                        Soluções Completas em Direito Tributário
+                    </span>
+                </div>
+                
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6">
+                    Nossos <span class="text-yellow-300">Serviços</span><br>
+                    <span class="text-fh-green">Especializados</span>
+                </h1>
+                
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+                    Há mais de 30 anos oferecendo soluções jurídicas e tecnológicas especializadas em direito tributário, 
+                    potencializadas pela nossa plataforma VIDAL de Inteligência Artificial.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="window.open('FH_Souza_Contato_Melhorado.html', '_blank')" class="bg-white text-fh-dark px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Agendar Consulta
+                    </button>
+                    <button onclick="document.getElementById('servicos').scrollIntoView({behavior: 'smooth'})" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-fh-dark transition-all">
+                        <i class="fas fa-arrow-down mr-2"></i>
+                        Ver Serviços
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Principais -->
+    <section id="servicos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-fh-dark mb-4">Principais <span class="text-fh-green">Serviços</span></h2>
+                <p class="text-xl text-fh-gray max-w-3xl mx-auto">
+                    Soluções integradas que combinam expertise jurídica tradicional com tecnologia de ponta VIDAL
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- Consultoria Jurídica Tributária -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl card-hover border border-gray-100">
+                    <div class="service-icon w-20 h-20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-balance-scale text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-fh-dark mb-4 text-center">Consultoria Jurídica Tributária</h3>
+                    <p class="text-fh-gray mb-6 text-center">Expertise consolidada em direito tributário com mais de 30 anos de experiência no mercado nacional.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-fh-green rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-check text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-fh-dark">Mandados de Segurança</h4>
+                                <p class="text-sm text-fh-gray">Proteção contra ilegalidades e abusos da administração pública</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-fh-green rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-check text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-fh-dark">Ações Declaratórias</h4>
+                                <p class="text-sm text-fh-gray">Esclarecimento de dúvidas sobre obrigações tributárias</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-fh-green rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-check text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-fh-dark">Defesas Administrativas</h4>
+                                <p class="text-sm text-fh-gray">Representação em processos junto aos órgãos fiscalizadores</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-fh-green to-blue-500 text-white rounded-xl p-4 text-center">
+                        <span class="font-semibold">Para empresas de todos os portes</span>
+                    </div>
+                </div>
+
+                <!-- Revisão Fiscal com VIDAL -->
+                <div class="bg-gradient-to-br from-fh-green to-blue-500 rounded-3xl p-8 shadow-xl card-hover text-white">
+                    <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-search-dollar text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">Revisão Fiscal com VIDAL</h3>
+                    <p class="text-white/90 mb-6 text-center">Nossa IA identifica tributos pagos indevidamente nos últimos 5 anos de forma automatizada.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-robot text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Análise Automatizada VIDAL</h4>
+                                <p class="text-sm text-white/80">IA cruza mais de 200 pontos de crédito em segundos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-clock text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Execução em 45-60 dias</h4>
+                                <p class="text-sm text-white/80">Processo ágil com resultados garantidos</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-shield-check text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Sem Riscos Jurídicos</h4>
+                                <p class="text-sm text-white/80">30 anos de experiência garantem segurança total</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-400 text-fh-dark rounded-xl p-4 text-center">
+                        <span class="font-bold">Economia potencial até 40%</span>
+                    </div>
+                </div>
+
+                <!-- Planejamento Tributário -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl card-hover border border-gray-100">
+                    <div class="service-icon w-20 h-20 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-fh-dark mb-4 text-center">Planejamento Tributário</h3>
+                    <p class="text-fh-gray mb-6 text-center">Estratégias personalizadas para otimização da carga tributária com análise VIDAL.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-fh-green rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-user-md text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-fh-dark">Diagnóstico Personalizado</h4>
+                                <p class="text-sm text-fh-gray">Análise completa da situação fiscal da empresa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-fh-green rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-users text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-fh-dark">Equipe Multidisciplinar</h4>
+                                <p class="text-sm text-fh-gray">Advogados, contadores e analistas especializados</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-fh-green rounded-full flex items-center justify-center mt-0.5">
+                                <i class="fas fa-sync text-white text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-fh-dark">Acompanhamento Contínuo</h4>
+                                <p class="text-sm text-fh-gray">Monitoramento constante via plataforma VIDAL</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl p-4 text-center">
+                        <span class="font-semibold">Metodologia FH NextHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processo FH NextHub -->
+    <section class="py-20 bg-fh-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">
+                    Metodologia <span class="text-fh-green">FH NextHub</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Nosso processo exclusivo integrado à tecnologia VIDAL para máxima eficiência
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-5 gap-8">
+                <!-- 1. CONEXÃO -->
+                <div class="text-center process-step">
+                    <div class="w-24 h-24 bg-gradient-to-br from-fh-green to-blue-500 rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-link text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-fh-green">CONEXÃO</h3>
+                    <p class="text-gray-300 text-sm">Conectamos e coletamos dados fiscais de forma segura</p>
+                </div>
+
+                <!-- 2. COMPREENSÃO -->
+                <div class="text-center process-step">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-fh-green">COMPREENSÃO</h3>
+                    <p class="text-gray-300 text-sm">IA VIDAL interpreta e organiza dados inteligentemente</p>
+                </div>
+
+                <!-- 3. CONFIGURAÇÃO -->
+                <div class="text-center process-step">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-drafting-compass text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-fh-green">CONFIGURAÇÃO</h3>
+                    <p class="text-gray-300 text-sm">Elaboramos diagnóstico personalizado</p>
+                </div>
+
+                <!-- 4. CORREÇÃO -->
+                <div class="text-center process-step">
+                    <div class="w-24 h-24 bg-gradient-to-br from-pink-500 to-red-500 rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-tools text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-fh-green">CORREÇÃO</h3>
+                    <p class="text-gray-300 text-sm">Implementamos soluções fiscais precisas</p>
+                </div>
+
+                <!-- 5. CONTROLE -->
+                <div class="text-center process-step">
+                    <div class="w-24 h-24 bg-gradient-to-br from-red-500 to-fh-green rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-fh-green">CONTROLE</h3>
+                    <p class="text-gray-300 text-sm">Monitoramento contínuo via dashboards VIDAL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outros Serviços -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-fh-dark mb-4">Outros <span class="text-fh-green">Serviços</span></h2>
+                <p class="text-xl text-fh-gray">Soluções complementares para atender todas as necessidades tributárias</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- SPED e Obrigações Acessórias -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">SPED & Obrigações Acessórias</h3>
+                    <p class="text-fh-gray mb-4">Assessoria completa em Sistema Público de Escrituração Digital</p>
+                    <ul class="space-y-2 text-sm text-fh-gray">
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>EFD-ICMS/IPI</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>ECD - Escrituração Contábil Digital</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>ECF - Escrituração Contábil Fiscal</li>
+                    </ul>
+                </div>
+
+                <!-- Regimes Tributários Especiais -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-star text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">Regimes Tributários Especiais</h3>
+                    <p class="text-fh-gray mb-4">Enquadramento e aproveitamento de benefícios fiscais</p>
+                    <ul class="space-y-2 text-sm text-fh-gray">
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Drawback</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Zona Franca de Manaus</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Regimes Especiais de Importação</li>
+                    </ul>
+                </div>
+
+                <!-- Recuperação de Créditos -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-coins text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">Recuperação de Créditos</h3>
+                    <p class="text-fh-gray mb-4">Identificação e recuperação de valores pagos indevidamente</p>
+                    <ul class="space-y-2 text-sm text-fh-gray">
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>PIS/COFINS sobre insumos</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>ICMS sobre energia elétrica</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Exclusão do ICMS da base do PIS/COFINS</li>
+                    </ul>
+                </div>
+
+                <!-- Compliance Tributário -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-check text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">Compliance Tributário</h3>
+                    <p class="text-fh-gray mb-4">Monitoramento contínuo para evitar riscos fiscais</p>
+                    <ul class="space-y-2 text-sm text-fh-gray">
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Auditoria preventiva</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Monitoramento VIDAL 24/7</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Relatórios executivos</li>
+                    </ul>
+                </div>
+
+                <!-- Due Diligence Tributária -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">Due Diligence Tributária</h3>
+                    <p class="text-fh-gray mb-4">Análise completa para fusões, aquisições e reestruturações</p>
+                    <ul class="space-y-2 text-sm text-fh-gray">
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Análise de passivos</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Mapeamento de riscos</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Relatório executivo VIDAL</li>
+                    </ul>
+                </div>
+
+                <!-- Consultoria Internacional -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-globe text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-fh-dark mb-3">Consultoria Internacional</h3>
+                    <p class="text-fh-gray mb-4">Orientação para operações internacionais e preços de transferência</p>
+                    <ul class="space-y-2 text-sm text-fh-gray">
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Transfer Pricing</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Operações de importação/exportação</li>
+                        <li><i class="fas fa-check text-fh-green mr-2"></i>Tratados internacionais</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 bg-fh-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Precisa de Assessoria <span class="text-yellow-300">Tributária</span>?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+                Nossa equipe está pronta para analisar sua situação fiscal e propor soluções personalizadas 
+                com o apoio da tecnologia VIDAL.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <button onclick="window.open('FH_Souza_Contato_Melhorado.html', '_blank')" class="bg-white text-fh-green px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all">
+                    <i class="fas fa-calendar-check mr-2"></i>
+                    Agendar Consulta Gratuita
+                </button>
+                <button onclick="window.open('https://wa.me/5515981198493?text=Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20tributários', '_blank')" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-fh-green transition-all">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-fh-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-fh-green rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">FH</span>
+                        </div>
+                        <div>
+                            <div class="text-fh-green font-bold text-lg">SOUZA.</div>
+                            <div class="text-white text-sm">ADVOGADOS</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                        Há mais de 30 anos oferecendo soluções especializadas em direito tributário 
+                        com tecnologia de ponta e expertise jurídica consolidada.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <a href="FH_Souza_Site_Completo_Final.html" class="block hover:text-fh-green transition-colors">Início</a>
+                        <a href="FH_Souza_Nossa_Historia.html" class="block hover:text-fh-green transition-colors">Nossa História</a>
+                        <a href="FH_Souza_Blog_Noticias_Melhorado.html" class="block hover:text-fh-green transition-colors">Notícias</a>
+                        <a href="FH_Souza_Contato_Melhorado.html" class="block hover:text-fh-green transition-colors">Contato</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contato</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-fh-green"></i>
+                            <p>(15) 98119-8493</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-fh-green"></i>
+                            <p>fabricio@fhsouza.com.br</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-fh-green mt-1"></i>
+                            <div>
+                                <p>R. Eulália Silva, 454 - 1º Andar</p>
+                                <p>Sorocaba - SP, 18030-230</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 FH Souza Advogados. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            // Implementação do menu mobile se necessário
+            console.log('Mobile menu toggle');
+        }
+    </script>
+</body>
+</html>
